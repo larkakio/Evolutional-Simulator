@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+:root {
+  --void: #04060f;
+  --grid-glow: rgba(0, 255, 255, 0.04);
+}
+
+@theme inline {
+  --font-sans: var(--font-mono-ui), ui-monospace, monospace;
+}
+
+body {
+  min-height: 100dvh;
+  background-color: var(--void);
+  background-image:
+    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(147, 51, 234, 0.18), transparent 55%),
+    radial-gradient(ellipse 90% 60% at 100% 50%, rgba(34, 211, 238, 0.08), transparent 45%),
+    radial-gradient(ellipse 70% 50% at 0% 80%, rgba(236, 72, 153, 0.1), transparent 40%),
+    linear-gradient(180deg, #050810 0%, #070716 40%, #04060f 100%);
+  color: #e2e8f0;
+  font-family: var(--font-mono-ui), ui-monospace, monospace;
+}
+
+body::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  opacity: 0.04;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 255, 0.07) 2px,
+    rgba(0, 255, 255, 0.07) 3px
+  );
+}
+
+@keyframes neon-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  41% {
+    opacity: 0.92;
+  }
+  45% {
+    opacity: 1;
+  }
+  52% {
+    opacity: 0.88;
+  }
+}
+
+.neon-title {
+  animation: neon-flicker 4s ease-in-out infinite;
+  text-shadow:
+    0 0 8px rgba(34, 211, 238, 0.8),
+    0 0 24px rgba(236, 72, 153, 0.5);
+}
