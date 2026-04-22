@@ -21,7 +21,8 @@ const mono = IBM_Plex_Mono({
 });
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  "https://evolutional-simulator.vercel.app";
 
 export const metadata: Metadata = {
   title: "Evolution Simulator",
@@ -47,7 +48,7 @@ export default async function RootLayout({
   const cookie = (await headers()).get("cookie");
   const initialState = cookieToInitialState(config, cookie ?? undefined);
   const baseAppId =
-    process.env.NEXT_PUBLIC_BASE_APP_ID ?? "configure-base-app-id";
+    process.env.NEXT_PUBLIC_BASE_APP_ID ?? "69e880d30521103d06399224";
 
   return (
     <html
